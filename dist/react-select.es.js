@@ -430,6 +430,8 @@ var Option = function (_React$Component) {
 		value: function handleMouseDown(event) {
 			event.preventDefault();
 			event.stopPropagation();
+			event.nativeEvent.stopImmediatePropagation();
+
 			this.props.onSelect(this.props.option, event);
 		}
 	}, {
@@ -545,6 +547,8 @@ var Value = function (_React$Component) {
 			}
 			if (this.props.onClick) {
 				event.stopPropagation();
+				event.nativeEvent.stopImmediatePropagation();
+
 				this.props.onClick(this.props.value, event);
 				return;
 			}
