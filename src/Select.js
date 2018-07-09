@@ -478,6 +478,7 @@ class Select extends React.Component {
 				}
 				break;
 			case 9: // tab
+			console.log("Haha")
 				if (event.shiftKey || !this.state.isOpen || !this.props.tabSelectsValue) {
 					return;
 				}
