@@ -171,7 +171,7 @@ menuRenderer.propTypes = {
 
 var blockEvent = (function (event) {
 	event.preventDefault();
-	event.stopPropagation();
+	event.stopPropagation(); event.nativeEvent.stopImmediatePropagation();
 	if (event.target.tagName !== 'A' || !('href' in event.target)) {
 		return;
 	}
@@ -434,7 +434,7 @@ var Option = function (_React$Component) {
 		key: 'handleMouseDown',
 		value: function handleMouseDown(event) {
 			event.preventDefault();
-			event.stopPropagation();
+			event.stopPropagation(); event.nativeEvent.stopImmediatePropagation();
 			event.nativeEvent.stopImmediatePropagation();
 
 			this.props.onSelect(this.props.option, event);
@@ -551,19 +551,19 @@ var Value = function (_React$Component) {
 				return;
 			}
 			if (this.props.onClick) {
-				event.stopPropagation();
+				event.stopPropagation(); event.nativeEvent.stopImmediatePropagation();
 				this.props.onClick(this.props.value, event);
 				return;
 			}
 			if (this.props.value.href) {
-				event.stopPropagation();
+				event.stopPropagation(); event.nativeEvent.stopImmediatePropagation();
 			}
 		}
 	}, {
 		key: 'onRemove',
 		value: function onRemove(event) {
 			event.preventDefault();
-			event.stopPropagation();
+			event.stopPropagation(); event.nativeEvent.stopImmediatePropagation();
 			this.props.onRemove(this.props.value);
 		}
 	}, {
@@ -975,7 +975,7 @@ var Select$1 = function (_React$Component) {
 
 			if (this.state.isOpen) {
 				// prevent default event handlers
-				event.stopPropagation();
+				event.stopPropagation(); event.nativeEvent.stopImmediatePropagation();
 				event.preventDefault();
 				// close the menu
 				this.closeMenu();
@@ -995,7 +995,7 @@ var Select$1 = function (_React$Component) {
 				return;
 			}
 
-			event.stopPropagation();
+			event.stopPropagation(); event.nativeEvent.stopImmediatePropagation();
 			event.preventDefault();
 
 			this._openAfterFocus = true;
@@ -1131,7 +1131,7 @@ var Select$1 = function (_React$Component) {
 				case 13:
 					// enter
 					event.preventDefault();
-					event.stopPropagation();
+					event.stopPropagation(); event.nativeEvent.stopImmediatePropagation();
 					if (this.state.isOpen) {
 						this.selectFocusedOption();
 					} else {
@@ -1143,10 +1143,10 @@ var Select$1 = function (_React$Component) {
 					event.preventDefault();
 					if (this.state.isOpen) {
 						this.closeMenu();
-						event.stopPropagation();
+						event.stopPropagation(); event.nativeEvent.stopImmediatePropagation();
 					} else if (this.props.clearable && this.props.escapeClearsValue) {
 						this.clearValue(event);
-						event.stopPropagation();
+						event.stopPropagation(); event.nativeEvent.stopImmediatePropagation();
 					}
 					break;
 				case 32:
@@ -1159,7 +1159,7 @@ var Select$1 = function (_React$Component) {
 						this.focusNextOption();
 						break;
 					}
-					event.stopPropagation();
+					event.stopPropagation(); event.nativeEvent.stopImmediatePropagation();
 					this.selectFocusedOption();
 					break;
 				case 38:

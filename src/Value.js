@@ -19,18 +19,18 @@ class Value extends React.Component {
 			return;
 		}
 		if (this.props.onClick) {
-			event.stopPropagation();
+			event.stopPropagation(); event.nativeEvent.stopImmediatePropagation();
 			this.props.onClick(this.props.value, event);
 			return;
 		}
 		if (this.props.value.href) {
-			event.stopPropagation();
+			event.stopPropagation(); event.nativeEvent.stopImmediatePropagation();
 		}
 	}
 
 	onRemove (event) {
 		event.preventDefault();
-		event.stopPropagation();
+		event.stopPropagation(); event.nativeEvent.stopImmediatePropagation();
 		this.props.onRemove(this.props.value);
 	}
 

@@ -341,7 +341,7 @@ class Select extends React.Component {
 
 		if (this.state.isOpen) {
 			// prevent default event handlers
-			event.stopPropagation();
+			event.stopPropagation(); event.nativeEvent.stopImmediatePropagation();
 			event.preventDefault();
 			// close the menu
 			this.closeMenu();
@@ -360,7 +360,7 @@ class Select extends React.Component {
 			return;
 		}
 
-		event.stopPropagation();
+		event.stopPropagation(); event.nativeEvent.stopImmediatePropagation();
 		event.preventDefault();
 
 		this._openAfterFocus = true;
@@ -479,14 +479,13 @@ class Select extends React.Component {
 				break;
 			case 9: // tab
 				if (event.shiftKey || !this.state.isOpen || !this.props.tabSelectsValue) {
-					break;
+					return;
 				}
-				event.preventDefault();
 				this.selectFocusedOption();
-				break;
+				return;
 			case 13: // enter
 				event.preventDefault();
-				event.stopPropagation();
+				event.stopPropagation(); event.nativeEvent.stopImmediatePropagation();
 				if (this.state.isOpen) {
 					this.selectFocusedOption();
 				} else {
@@ -497,10 +496,10 @@ class Select extends React.Component {
 				event.preventDefault();
 				if (this.state.isOpen) {
 					this.closeMenu();
-					event.stopPropagation();
+					event.stopPropagation(); event.nativeEvent.stopImmediatePropagation();
 				} else if (this.props.clearable && this.props.escapeClearsValue) {
 					this.clearValue(event);
-					event.stopPropagation();
+					event.stopPropagation(); event.nativeEvent.stopImmediatePropagation();
 				}
 				break;
 			case 32: // space
@@ -512,7 +511,7 @@ class Select extends React.Component {
 					this.focusNextOption();
 					break;
 				}
-				event.stopPropagation();
+				event.stopPropagation(); event.nativeEvent.stopImmediatePropagation();
 				this.selectFocusedOption();
 				break;
 			case 38: // up

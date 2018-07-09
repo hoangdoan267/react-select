@@ -1,6 +1,6 @@
 export default event => {
 	event.preventDefault();
-	event.stopPropagation();
+	event.stopPropagation(); event.nativeEvent.stopImmediatePropagation();
 	if ((event.target.tagName !== 'A') || !('href' in event.target)) {
 		return;
 	}
